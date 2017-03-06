@@ -1,0 +1,21 @@
+{
+  "name": "ctwatch",
+  "version": "0.0.1",
+  "description": "Certificate Transparency searcher & indexer",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cry/ctwatch.git"
+  },
+  "author": "Carey Li",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/cry/ctwatch/issues"
+  },
+  "homepage": "https://github.com/cry/ctwatch#readme"
+}
