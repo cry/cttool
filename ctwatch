@@ -1,0 +1,35 @@
+#!/usr/bin/env node
+
+/*
+ * CTWatch
+ * Desc: Searches Certificate Transparency services for certs w/ option to notify on new certs detected
+ * Author: https://github.com/cry
+ */
+
+ "use strict";
+
+let googleCT = require("./lib/ct/googleCT.js"),
+	program = require('commander');
+
+program
+	.version('0.0.1')
+	.option('-c', '--ct-server', 'specify which ct service to use (default Google)');
+
+program
+	.command('discover <hostname>')
+	.description('scan Certificate Transparency logs for subdomains of hostname')
+	.action((hostname) => {
+		googleCT.getHostnames(hostname)
+			.then((res) => {
+				console.log("\nHostnames found: ");
+
+				res.forEach((el) => console.log("> " + el));
+			});
+	});
+
+program.parse(process.argv);
+
+if (!process.argv.slice(2).length) {
+	program.outputHelp();
+	return;
+}

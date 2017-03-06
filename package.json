@@ -2,9 +2,17 @@
   "name": "ctwatch",
   "version": "0.0.1",
   "description": "Certificate Transparency searcher & indexer",
-  "main": "index.js",
-  "dependencies": {},
-  "devDependencies": {},
+  "main": "ctwatch",
+  "dependencies": {
+    "bluebird": "^3.5.0",
+    "commander": "^2.9.0",
+    "log4js": "^1.1.1",
+    "request": "^2.80.0",
+    "request-promise": "^4.1.1"
+  },
+  "devDependencies": {
+    "debug": "^2.6.1"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
