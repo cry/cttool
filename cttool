@@ -14,13 +14,12 @@ let googleCT = require("./lib/ct/googleCT.js"),
 	fs = Promise.promisifyAll(require('fs')),
 	log = (require('log4js')).getLogger('Main');
 
-log.info("Certificate Transparency tool v0.0.1");
-log.warn("Note: Currently only searches Google CT logs, will add Symantic CT logs eventually.\n");
+log.info("Certificate Transparency tool v0.0.1\n");
 
 program
 	.version('0.0.1')
 	.option('-c, --ct-server <server>', 'specify which ct service to use (default Google)')
-	.option('-f, --file (file)', 'save hostnames to file as JSON [res.json]', 'res.json');
+	.option('-f, --file <file>', 'save hostnames to file as JSON [res.json]', 'res.json');
 
 program
 	.command('discover <hostname>')
@@ -36,9 +35,10 @@ program
 				console.log();
 
 				if (program.file !== undefined) {
-					fs.writeFile(program.file, res);
+					fs.writeFile(program.file, JSON.stringify(res));
 				};
-			});
+			})
+			.catch(() => {});
 	});
 
 program.parse(process.argv);
