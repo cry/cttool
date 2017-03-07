@@ -14,6 +14,9 @@ let googleCT = require("./lib/ct/googleCT.js"),
 	fs = Promise.promisifyAll(require('fs')),
 	log = (require('log4js')).getLogger('Main');
 
+log.info("Certificate Transparency tool v0.0.1");
+log.warn("Note: Currently only searches Google CT logs, will add Symantic CT logs eventually.\n");
+
 program
 	.version('0.0.1')
 	.option('-c, --ct-server <server>', 'specify which ct service to use (default Google)')
@@ -25,9 +28,12 @@ program
 	.action((hostname) => {
 		googleCT.getHostnames(hostname)
 			.then((res) => {
-				console.log("\nUnique hostnames found:");
+				console.log();
+				log.info("Unique hostnames found: \n");
 
 				res.forEach((el) => console.log("> " + el));
+
+				console.log();
 
 				if (program.file !== undefined) {
 					fs.writeFile(program.file, res);

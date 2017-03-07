@@ -1,6 +1,9 @@
 {
   "name": "cttool",
   "version": "0.0.1",
+  "engines": {
+    "node": ">=6.0.0"
+  },
   "description": "Certificate Transparency hostname searcher",
   "main": "cttool",
   "dependencies": {

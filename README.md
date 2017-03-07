@@ -1,10 +1,10 @@
-#Certificate Transparency toolkit
+# Certificate Transparency toolkit
 
-Requires Node >6.00 for ES6 features.
+Certificate transparency essentially logs new TLS certificates as they are issued to centralised logging servers run by Google/Symantec. By querying these logs for all issued certificates, it is possible to obtain a list of all hostnames to which TLS certificates have been issued.
 
 ## Usage:
 
     npm install
 
-    chmod +x ctwatch
-	./ctwatch discover twillo.com
+    chmod +x cttool
+	./cttool discover twillo.com
