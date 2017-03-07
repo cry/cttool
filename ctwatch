@@ -2,8 +2,8 @@
 
 /*
  * CTWatch
- * Desc: Searches Certificate Transparency services for certs w/ option to notify on new certs detected
- * Author: https://github.com/cry
+ * Desc: Searches Certificate Transparency services for hostnames linked to certificates.
+ * Author: Carey Li (https://github.com/cry)
  */
 
  "use strict";
@@ -13,7 +13,8 @@ let googleCT = require("./lib/ct/googleCT.js"),
 
 program
 	.version('0.0.1')
-	.option('-c', '--ct-server', 'specify which ct service to use (default Google)');
+	.option('-c, --ct-server <server>', 'specify which ct service to use (default Google)')
+	.option('-f, --file <file>', 'save hostnames to file as JSON');
 
 program
 	.command('discover <hostname>')
