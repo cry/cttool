@@ -1,8 +1,8 @@
 {
-  "name": "ctwatch",
+  "name": "cttool",
   "version": "0.0.1",
-  "description": "Certificate Transparency searcher & indexer",
-  "main": "ctwatch",
+  "description": "Certificate Transparency hostname searcher",
+  "main": "cttool",
   "dependencies": {
     "bluebird": "^3.5.0",
     "commander": "^2.9.0",
@@ -18,12 +18,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/cry/ctwatch.git"
+    "url": "git+https://github.com/cry/cttool.git"
   },
   "author": "Carey Li",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/cry/ctwatch/issues"
+    "url": "https://github.com/cry/cttool/issues"
   },
-  "homepage": "https://github.com/cry/ctwatch#readme"
+  "homepage": "https://github.com/cry/cttool#readme"
 }

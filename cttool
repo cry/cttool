@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 /*
- * CTWatch
+ * CtTool
  * Desc: Searches Certificate Transparency services for hostnames linked to certificates.
  * Author: Carey Li (https://github.com/cry)
  */
@@ -9,12 +9,15 @@
  "use strict";
 
 let googleCT = require("./lib/ct/googleCT.js"),
-	program = require('commander');
+	program = require('commander'),
+	Promise = require('bluebird'),
+	fs = Promise.promisifyAll(require('fs')),
+	log = (require('log4js')).getLogger('Main');
 
 program
 	.version('0.0.1')
 	.option('-c, --ct-server <server>', 'specify which ct service to use (default Google)')
-	.option('-f, --file <file>', 'save hostnames to file as JSON');
+	.option('-f, --file (file)', 'save hostnames to file as JSON [res.json]', 'res.json');
 
 program
 	.command('discover <hostname>')
@@ -22,9 +25,13 @@ program
 	.action((hostname) => {
 		googleCT.getHostnames(hostname)
 			.then((res) => {
-				console.log("\nHostnames found: ");
+				console.log("\nUnique hostnames found:");
 
 				res.forEach((el) => console.log("> " + el));
+
+				if (program.file !== undefined) {
+					fs.writeFile(program.file, res);
+				};
 			});
 	});
 
