@@ -8,6 +8,8 @@
 
  "use strict";
 
+const VERSION = '0.0.2';
+
 let googleCT = require("./lib/ct/googleCT.js"),
 	//dns = require("./lib/dns/resolve.js"),
 	program = require('commander'),
@@ -17,10 +19,10 @@ let googleCT = require("./lib/ct/googleCT.js"),
 	hl = require('colors'),
 	util = require('util');
 
-log.info("Certificate Transparency tool v0.0.2\n");
+log.info(util.format("Certificate Transparency tool %s\n", VERSION));
 
 program
-	.version('0.0.1')
+	.version(VERSION)
 	//.option('-c, --ct-server <server>', 'specify which ct service to use (default Google)')
 	.option('-f, --file <file>', 'save hostnames to file as JSON [res.json]', 'res.json')
 	.option('-c, --check', 'check discovered hostnames against dns')
