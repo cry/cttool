@@ -9,7 +9,7 @@ Certificate transparency essentially logs new TLS certificates as they are issue
     npm install
 
     chmod +x cttool
-	./cttool discover twillo.com
+	./cttool discover example.com
 
 ## Example output:
 
