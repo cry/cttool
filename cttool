@@ -8,6 +8,13 @@
 
  "use strict";
 
+ // Strict version checking
+
+ if (Number(process.versions.node[0]) < 6) {
+ 	console.error("Requires node 6+, you have " + process.versions.node);
+ 	process.exit();
+ };
+
 const VERSION = '0.0.2';
 
 let googleCT = require("./lib/ct/googleCT.js"),
@@ -19,7 +26,7 @@ let googleCT = require("./lib/ct/googleCT.js"),
 	hl = require('colors'),
 	util = require('util');
 
-log.info(util.format("Certificate Transparency tool %s\n", VERSION));
+log.info(util.format("Certificate Transparency tool %s running on node %s, V8 %s\n", VERSION, process.versions.node, process.versions.v8).bold);
 
 program
 	.version(VERSION)
@@ -43,6 +50,8 @@ program
 					res.forEach((l) => {
 						console.log("> " + l)
 					})
+
+					return;
 				};
 
 				let exec = require('child_process').exec;
