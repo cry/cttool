@@ -56,7 +56,7 @@ program
 						return;
 					};
 
-					exec(util.format("dig +short \"%s\"", l), (err, stdout, stderr) => {
+					exec(util.format("dig +short '%s'", l.replace(/(["\s'$`\\])/g,'\\$1')), (err, stdout, stderr) => {
 						if (stdout === "") {
 							console.log(util.format("> %s - no dns found", l).red);
 							return;

@@ -1,5 +1,7 @@
 # Certificate Transparency toolkit
 
+**tl;dr point towards hostname will scan logged ssl certs for other domain names with option to check if a records are still valid**
+
 Certificate transparency essentially logs new TLS certificates as they are issued to centralised logging servers run by Google/Symantec. By querying these logs for all issued certificates, it is possible to obtain a list of all hostnames to which TLS certificates have been issued.
 
 ## Usage:
