@@ -8,6 +8,7 @@
   "main": "cttool",
   "dependencies": {
     "bluebird": "^3.5.0",
+    "colors": "^1.1.2",
     "commander": "^2.9.0",
     "log4js": "^1.1.1",
     "request": "^2.80.0",
